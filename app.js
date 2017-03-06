@@ -13,8 +13,31 @@ angular
 
 function superheroController () {
   this.display = -1
+  this.sh1 = false
+  this.sh2 = -1
   this.superheroes = superheroData
   this.click = function (input) {
     this.display = input
+  }
+  this.new = function () {
+    let newhero = {name: this.name, phone: this.phone, img_url: this.img_url, affiliation: this.affiliation}
+    this.superheroes.push(newhero)
+  }
+  this.edit = function (input) {
+    input.name = this.editname ? this.editname : input.name
+    input.phone = this.editphone ? this.editphone : input.phone
+    input.img_url = this.editimg_url ? this.editimg_url : input.img_url
+    input.affiliation = this.editaffiliation ? this.editaffiliation : input.affiliation
+  }
+  this.show1 = function () {
+    if (this.sh1 == false) {
+      this.sh1 = true
+    }
+    else {
+      this.sh1 = false
+    }
+  }
+  this.show2 = function (input) {
+    this.sh2 = input
   }
 }
